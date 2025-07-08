@@ -1,0 +1,14 @@
+{
+  "name": "service-example",
+  "private": true,
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@types/node": "^12.12.21",
+    "husky": "^4.3.6",
+    "typescript": "^3.7.5"
+  },
+  "dependencies": {
+    "@vtex/api": "^6.45.10",
+    "@vtex/tsconfig": "^0.6.0"
+  }
+}
