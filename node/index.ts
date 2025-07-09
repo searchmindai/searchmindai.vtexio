@@ -45,7 +45,7 @@ export default new Service({
   clients,
   routes: {
     builtwith: method({
-      GET: builtwithMiddleware,
+      POST: builtwithMiddleware,
     }),
     infoclient: method({
       GET: infoClientMiddleware,

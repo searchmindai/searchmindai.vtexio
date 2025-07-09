@@ -19,8 +19,8 @@
     {
       "name": "outbound-access",
       "attrs": {
-        "host": "eshopper-global-app.vercel.app",
-        "path": "/api/*"
+        "host": "dev.api.searchmindai.com",
+        "path": "/v2/search"
       }
     },
     {

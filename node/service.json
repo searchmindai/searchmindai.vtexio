@@ -7,7 +7,7 @@
   "workers": 1,
   "routes": {
     "builtwith": {
-      "path": "/_v/cliente/:url",
+      "path": "/_v/cliente",
       "public": true
     },
     "infoclient": {
