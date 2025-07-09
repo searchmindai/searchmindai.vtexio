@@ -6,8 +6,12 @@
   "maxReplicas": 4,
   "workers": 1,
   "routes": {
+    "builtwith": {
+      "path": "/_v/cliente/:url",
+      "public": true
+    },
     "infoclient": {
-      "path": "/_v/infoclient/:code",
+      "path": "/_v/infoclient",
       "public": true
     }
   }
