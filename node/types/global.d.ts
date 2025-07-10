@@ -1,5 +1,5 @@
-import type { ServiceContext } from '@vtex/api'
+import type { ServiceContext } from "@vtex/api";
 
 declare global {
-  type Context = ServiceContext<Clients>
+  type Context = ServiceContext<Clients>;
 }

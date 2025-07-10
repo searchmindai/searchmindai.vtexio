@@ -1,6 +1,12 @@
 {
   "vendor": "tramontinacl",
   "name": "searchmindai",
+  "description": "SearchMind AI",
+  "mustUpdateAt": "2024-01-01T00:00:00Z",
+  "categories": [
+    "search",
+    "ai"
+  ],
   "version": "0.0.1",
   "builders": {
     "node": "6.x"
