@@ -1,10 +1,20 @@
 {
-  "name": "eshopper",
   "vendor": "tramontinacl",
+  "name": "searchmindai",
   "version": "0.0.1",
-  "dependencies": {},
   "builders": {
     "node": "6.x"
+  },
+  "settingsSchema": {
+    "title": "YOUR APP NAME",
+    "type": "object",
+    "properties": {
+      "gtmId": {
+        "title": "SAMPLE FIELD",
+        "description": "Enter the ID (GTM-XXXX) from your Google Tag Manager",
+        "type": "string"
+      }
+    }
   },
   "policies": [
     {
@@ -15,18 +25,14 @@
       }
     },
     {
-      "name": "outbound-access",
-      "attrs": {
-        "host": "portal.vtexcommercestable.com.br",
-        "path": "/api/*"
-      }
-    },
-    {
       "name": "colossus-fire-event"
     },
     {
       "name": "colossus-write-logs"
     }
   ],
+  "dependencies": {},
+  "peerDependencies": {},
+  "title": "SearchMind AI",
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

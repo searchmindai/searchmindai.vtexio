@@ -7,14 +7,8 @@ export default class BuiltWith extends ExternalClient {
   }
 
 
-  public getBuiltWith() {
-    return this.http.post("/v2/search", {
-      chatConfigId: 29,
-      query: "faca pequena",
-      limit: 10,
-      offset: 0,
-      documentType: "product",
-    }, {
+  public getBuiltWith(body: any) {
+    return this.http.post("/v2/search", body, {
       headers: {
         'API-KEY': 'vtexTramontinaTest_GgwcBaIErD',
       }

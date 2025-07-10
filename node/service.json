@@ -9,10 +9,6 @@
     "builtwith": {
       "path": "/_v/cliente",
       "public": true
-    },
-    "infoclient": {
-      "path": "/_v/infoclient",
-      "public": true
     }
   }
 }
