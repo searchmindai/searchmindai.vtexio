@@ -3,7 +3,6 @@ import { LRUCache, method, Service } from '@vtex/api'
 
 import { Clients } from './clients'
 import { builtwithMiddleware } from './middlewares/builtwith'
-import { infoClientMiddleware } from './middlewares/infoclient'
 
 const TIMEOUT_MS = 800
 
@@ -47,8 +46,6 @@ export default new Service({
     builtwith: method({
       POST: builtwithMiddleware,
     }),
-    infoclient: method({
-      GET: infoClientMiddleware,
-    }),
+
   },
 })

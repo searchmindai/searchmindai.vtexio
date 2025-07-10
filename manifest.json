@@ -2,18 +2,10 @@
   "name": "eshopper",
   "vendor": "tramontinacl",
   "version": "0.0.1",
-  "title": "Service Example",
-  "description": "Reference app for VTEX IO Services",
-  "mustUpdateAt": "2022-01-01",
-  "categories": [],
   "dependencies": {},
   "builders": {
     "node": "6.x"
   },
-  "scripts": {
-    "prereleasy": "bash lint.sh"
-  },
-  "credentialType": "absolute",
   "policies": [
     {
       "name": "outbound-access",
