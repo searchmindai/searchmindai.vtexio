@@ -1,8 +1,7 @@
 import type { ClientsConfig } from "@vtex/api";
 import { LRUCache, method, Service } from "@vtex/api";
-
 import { Clients } from "./clients";
-import { builtwithMiddleware } from "./middlewares/builtwith";
+import { searchmindaiMiddleware } from "./middlewares/searchmindai";
 
 const TIMEOUT_MS = 800;
 const memoryCache = new LRUCache<string, never>({ max: 5000 });
@@ -19,9 +18,5 @@ const clients: ClientsConfig<Clients> = {
 
 export default new Service({
   clients,
-  routes: {
-    builtwith: method({
-      POST: builtwithMiddleware,
-    }),
-  },
+  routes: { searchmindai: method({ POST: searchmindaiMiddleware }) },
 });

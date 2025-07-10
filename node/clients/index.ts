@@ -1,7 +1,7 @@
 import { IOClients } from "@vtex/api";
-import BuiltWith from "./builtwith";
+import SearchMindAi from "./searchmindai";
 export class Clients extends IOClients {
-  public get builtwith() {
-    return this.getOrSet("builtwith", BuiltWith);
+  public get searchmindai() {
+    return this.getOrSet("searchmindai", SearchMindAi);
   }
 }
