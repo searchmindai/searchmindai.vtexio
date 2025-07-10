@@ -5,11 +5,11 @@ export async function builtwithMiddleware(
   next: () => Promise<unknown>
 ) {
   const { clients } = context
-  // const appId = process.env.VTEX_APP_ID || "";
-  // const config = await context.clients.apps.getAppSettings(appId)
+  const appId = process.env.VTEX_APP_ID || "";
+  const config = await context.clients.apps.getAppSettings(appId)
   const body = await json(context.req)
 
-
+  console.log(config)
 
   context.status = 200
   context.body = await clients.builtwith.getBuiltWith(body)
