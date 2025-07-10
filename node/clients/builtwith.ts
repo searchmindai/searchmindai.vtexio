@@ -6,11 +6,9 @@ export default class BuiltWith extends ExternalClient {
     super("https://dev.api.searchmindai.com", context, options);
   }
 
-  public getBuiltWith(body: any) {
+  public getBuiltWith({ body, config }: { body: SearchRequest; config?: any }) {
     return this.http.post("/v2/search", body, {
-      headers: {
-        "API-KEY": "vtexTramontinaTest_GgwcBaIErD",
-      },
+      headers: { "API-KEY": config?.appKey || "" },
     });
   }
 }
