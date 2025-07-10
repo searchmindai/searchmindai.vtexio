@@ -1,6 +1,5 @@
 import type { ClientsConfig } from "@vtex/api";
 import { LRUCache, method, Service } from "@vtex/api";
-
 import { Clients } from "./clients";
 import { searchmindaiMiddleware } from "./middlewares/searchmindai";
 
@@ -19,9 +18,5 @@ const clients: ClientsConfig<Clients> = {
 
 export default new Service({
   clients,
-  routes: {
-    searchmindai: method({
-      POST: searchmindaiMiddleware,
-    }),
-  },
+  routes: { searchmindai: method({ POST: searchmindaiMiddleware }) },
 });
