@@ -6,8 +6,8 @@
   "maxReplicas": 4,
   "workers": 1,
   "routes": {
-    "builtwith": {
-      "path": "/_v/cliente",
+    "searchmindai": {
+      "path": "/_v/search",
       "public": true
     }
   }
