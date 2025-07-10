@@ -13,8 +13,5 @@
     "@vtex/tsconfig": "^0.5.6",
     "typescript": "3.9.7"
   },
-  "scripts": {
-    "lint": "tsc --noEmit --pretty"
-  },
   "version": "0.2.0"
 }
