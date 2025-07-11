@@ -10,14 +10,14 @@ function SearchBar() {
 
   return (
     <section className={classNames(handles.searchBarContainer, "flex items-center")}>
-      <div className={classNames("flex items-center b bg-white br2")}>
+      <div className={classNames("flex items-center b bg-white br2 ba")}>
         <input
           type="search"
           className={classNames(handles.searchBarInput, "bn br2")}
           id="sm-search-bar"
           name="sm-search-bar"
         />
-        <Icon id="hpa-cart" />
+        <Icon id="hpa-search" />
       </div>
     </section>
   );
