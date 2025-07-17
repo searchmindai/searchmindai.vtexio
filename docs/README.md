@@ -1,22 +1,22 @@
 # SearchMind
 
-SearchMind é um projeto focado em facilitar buscas inteligentes e organizadas em sua aplicação. Este README fornece uma visão geral do projeto, instruções de instalação, uso e informações de contribuição.
+SearchMind es un proyecto enfocado en facilitar búsquedas inteligentes y organizadas en tu aplicación. Este README proporciona una visión general del proyecto, instrucciones de instalación, uso e información para contribuir.
 
 ## Índice
 
-- [Sobre](#sobre)
-- [Instalação](#instalação)
+- [Acerca de](#acerca-de)
+- [Instalación](#instalación)
 - [Uso](#uso)
-- [Contribuição](#contribuição)
-- [Licença](#licença)
+- [Contribución](#contribución)
+- [Licencia](#licencia)
 
-## Sobre
+## Acerca de
 
-O SearchMind tem como objetivo oferecer uma solução eficiente para buscas, integrando recursos modernos e uma interface amigável.
+SearchMind tiene como objetivo ofrecer una solución eficiente para búsquedas, integrando recursos modernos y una interfaz amigable.
 
-## Instalação
+## Instalación
 
-Clone o repositório e instale as dependências:
+Clona el repositorio e instala las dependencias:
 
 ```bash
 git clone https://github.com/seu-usuario/searchmind.app.git
@@ -26,26 +26,26 @@ npm install
 
 ## Uso
 
-Inicie o projeto localmente:
+Inicia el proyecto localmente:
 
 ```bash
 npm start
 ```
 
-Acesse em `http://localhost:3000`.
+Accede a `http://localhost:3000`.
 
-## Contribuição
+## Contribución
 
-Contribuições são bem-vindas! Siga os passos:
+¡Las contribuciones son bienvenidas! Sigue estos pasos:
 
-1. Fork este repositório
-2. Crie uma branch (`git checkout -b feature/nova-feature`)
-3. Commit suas alterações (`git commit -am 'Adiciona nova feature'`)
-4. Push para a branch (`git push origin feature/nova-feature`)
-5. Abra um Pull Request
+1. Haz un fork de este repositorio
+2. Crea una rama (`git checkout -b feature/nueva-funcionalidad`)
+3. Haz commit de tus cambios (`git commit -am 'Agrega nueva funcionalidad'`)
+4. Haz push a la rama (`git push origin feature/nueva-funcionalidad`)
+5. Abre un Pull Request
 
-## Licença
+## Licencia
 
-Este projeto está licenciado sob a [MIT License](LICENSE).
+Este proyecto está licenciado bajo la [Licencia MIT](LICENSE).
 
 ---
