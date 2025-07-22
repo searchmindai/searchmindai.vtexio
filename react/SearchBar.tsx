@@ -9,7 +9,7 @@ function SearchBar() {
   const { handles } = useCssHandles(CSS_HANDLES);
 
   return (
-    <section className={classNames(handles.searchBarContainer, "flex items-center")}>
+    <section className={classNames(handles.searchBarContainer, "relative w-100")}>
       <div className={classNames("flex items-center b bg-white br2 ba")}>
         <input
           type="search"
@@ -18,6 +18,14 @@ function SearchBar() {
           name="sm-search-bar"
         />
         <Icon id="hpa-search" />
+      </div>
+      <div className={classNames("absolute z-1")}>
+        <ul>
+          <li className="pa3">Search Result 1</li>
+          <li className="pa3">Search Result 2</li>
+          <li className="pa3">Search Result 3</li>
+          <li className="pa3">Search Result 4</li>
+        </ul>
       </div>
     </section>
   );
