@@ -3,7 +3,7 @@ import { LRUCache, method, Service } from "@vtex/api";
 import { Clients } from "./clients";
 import { searchmindaiMiddleware } from "./middlewares/searchmindai";
 
-const TIMEOUT_MS = 800;
+const TIMEOUT_MS = 5000;
 const memoryCache = new LRUCache<string, never>({ max: 5000 });
 
 metrics.trackCache("status", memoryCache);

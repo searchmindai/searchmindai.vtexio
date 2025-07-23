@@ -26,7 +26,7 @@
       "name": "outbound-access",
       "attrs": {
         "host": "dev.api.searchmindai.com",
-        "path": "/v2/search"
+        "path": "/v2/*"
       }
     },
     {
