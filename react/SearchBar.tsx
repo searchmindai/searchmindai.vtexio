@@ -61,7 +61,7 @@ function SearchResult() {
               </li>
             ))}
             <li className={classNames(handles.searchBarResultListItems, "t-small pa4 hover-bg-muted-5")}>
-              <a href={`/busca/${encodeURIComponent(searchTerm)}`} className="link no-underline c-muted-2">
+              <a href={`/${encodeURIComponent(searchTerm)}?map=ft`} className="link no-underline c-muted-2">
                 Ver todos os resultados
               </a>
             </li>
