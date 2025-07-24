@@ -18,7 +18,8 @@ function SearchResult() {
 	const { handles } = useCssHandles(CSS_HANDLES)
 	const [searchTerm, setSearchTerm] = useState('')
 	const [isFocused, setIsFocused] = useState(false)
-	const [results, setResults] = useState<{ productName: string }[]>([])
+	const [results, setResults] = useState<{ nome: string; link?: string }[]>([])
+	const [isLoading, setIsLoading] = useState(false)
 	const containerRef = useRef<HTMLDivElement>(null)
 
 	useEffect(() => {
@@ -36,6 +37,7 @@ function SearchResult() {
 	useEffect(() => {
 		const fetchResults = async () => {
 			if (searchTerm.length >= 3) {
+				setIsLoading(true)
 				try {
 					const res = await fetch('/_v/search', {
 						method: 'POST',
@@ -50,9 +52,17 @@ function SearchResult() {
 						}),
 					})
 					const data = await res.json()
-					setResults(data?.products || [])
+
+					const produtos = data.results.map((item: any) => ({
+						nome: item.data.productName,
+						link: item.data._vtex_original?.link?.replace(/^https?:\/\/[^/]+/, ''),
+					}))
+
+					setResults(produtos || [])
 				} catch (err) {
 					console.error('Search error:', err)
+				} finally {
+					setIsLoading(false)
 				}
 			} else {
 				setResults([])
@@ -84,9 +94,20 @@ function SearchResult() {
 			{searchTerm.length >= 3 && isFocused && (
 				<div className={classNames(handles.searchBarResultContainer, 'absolute z-1 bg-white w-100 br2 ba b--muted-4')}>
 					<ul className={classNames(handles.searchBarResultList, 'list pl0 mt0')}>
+						{isLoading &&
+							Array.from({ length: 3 }).map((_, idx) => (
+								<li
+									key={`loading-${idx}`}
+									className={classNames(handles.searchBarResultListItems, 't-small pa4 bg-muted-5 o-30')}
+								>
+									<div className="w-100 h1 br2 bg-muted-3" />
+								</li>
+							))}
 						{results.map((item, idx) => (
 							<li key={idx} className={classNames(handles.searchBarResultListItems, 't-small pa4 hover-bg-muted-5')}>
-								{item.productName}
+								<a href={item.link} className="link no-underline c-muted-2">
+									{item.nome}
+								</a>
 							</li>
 						))}
 						<li className={classNames(handles.searchBarResultListItems, 't-small pa4 hover-bg-muted-5')}>
