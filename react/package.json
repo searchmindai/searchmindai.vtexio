@@ -1,27 +1,27 @@
 {
-	"name": "searchmind-react-app",
-	"description": "React application for SearchMind",
-	"version": "0.0.1",
-	"dependencies": {
-		"classnames": "^2.3.2",
-		"react": "16.14.0",
-		"react-apollo": "^3.1.5",
-		"react-dom": "16.14.0",
-		"react-intl": "^6.3.0"
-	},
-	"devDependencies": {
-		"@types/classnames": "^2.2.9",
-		"@types/node": "^12.7.5",
-		"@types/react": "^16.9.2",
-		"@types/react-dom": "^16.9.0",
-		"@vtex/tsconfig": "^0.5.5",
-		"apollo-client": "^2.4.7",
-		"graphql": "^14.3.1",
-		"typescript": "3.9.7",
-		"vtex.css-handles": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.css-handles@1.0.0/public/@types/vtex.css-handles",
-		"vtex.device-detector": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.device-detector@0.2.6/public/@types/vtex.device-detector",
-		"vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.136.1/public/@types/vtex.render-runtime",
-		"vtex.store-icons": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-icons@0.18.0/public/@types/vtex.store-icons",
-		"vtex.styleguide": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.styleguide@9.146.3/public/@types/vtex.styleguide"
-	}
+  "name": "searchmind-react-app",
+  "description": "React application for SearchMind",
+  "version": "0.0.1",
+  "dependencies": {
+    "classnames": "^2.3.2",
+    "react": "16.14.0",
+    "react-apollo": "^3.1.5",
+    "react-dom": "16.14.0",
+    "react-intl": "^6.3.0"
+  },
+  "devDependencies": {
+    "@types/classnames": "^2.2.9",
+    "@types/node": "^12.7.5",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "@vtex/tsconfig": "^0.5.5",
+    "apollo-client": "^2.4.7",
+    "graphql": "^14.3.1",
+    "typescript": "3.9.7",
+    "vtex.css-handles": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.css-handles@1.0.0/public/@types/vtex.css-handles",
+    "vtex.device-detector": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.device-detector@0.2.6/public/@types/vtex.device-detector",
+    "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.136.1/public/@types/vtex.render-runtime",
+    "vtex.store-icons": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-icons@0.18.0/public/@types/vtex.store-icons",
+    "vtex.styleguide": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.styleguide@9.146.3/public/@types/vtex.styleguide"
+  }
 }

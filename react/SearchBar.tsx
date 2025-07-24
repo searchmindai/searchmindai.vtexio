@@ -18,6 +18,7 @@ function SearchResult() {
 	const { handles } = useCssHandles(CSS_HANDLES)
 	const [searchTerm, setSearchTerm] = useState('')
 	const [isFocused, setIsFocused] = useState(false)
+	const [results, setResults] = useState<{ productName: string }[]>([])
 	const containerRef = useRef<HTMLDivElement>(null)
 
 	useEffect(() => {
@@ -31,6 +32,34 @@ function SearchResult() {
 			document.removeEventListener('mousedown', handleClickOutside)
 		}
 	}, [])
+
+	useEffect(() => {
+		const fetchResults = async () => {
+			if (searchTerm.length >= 3) {
+				try {
+					const res = await fetch('/_v/search', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+						},
+						body: JSON.stringify({
+							query: searchTerm,
+							limit: 3,
+							offset: 0,
+							returnFields: ['productName'],
+						}),
+					})
+					const data = await res.json()
+					setResults(data?.products || [])
+				} catch (err) {
+					console.error('Search error:', err)
+				}
+			} else {
+				setResults([])
+			}
+		}
+		fetchResults()
+	}, [searchTerm])
 
 	return (
 		<section ref={containerRef} className={classNames(handles.searchBarContainer, 'relative w-100')}>
@@ -55,9 +84,9 @@ function SearchResult() {
 			{searchTerm.length >= 3 && isFocused && (
 				<div className={classNames(handles.searchBarResultContainer, 'absolute z-1 bg-white w-100 br2 ba b--muted-4')}>
 					<ul className={classNames(handles.searchBarResultList, 'list pl0 mt0')}>
-						{[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((_, idx) => (
+						{results.map((item, idx) => (
 							<li key={idx} className={classNames(handles.searchBarResultListItems, 't-small pa4 hover-bg-muted-5')}>
-								Search Result {idx + 1} for "{searchTerm}"
+								{item.productName}
 							</li>
 						))}
 						<li className={classNames(handles.searchBarResultListItems, 't-small pa4 hover-bg-muted-5')}>
