@@ -9,14 +9,14 @@ const memoryCache = new LRUCache<string, never>({ max: 5000 })
 metrics.trackCache('status', memoryCache)
 
 const clients: ClientsConfig<Clients> = {
-  implementation: Clients,
-  options: {
-    default: { retries: 2, timeout: TIMEOUT_MS },
-    status: { memoryCache },
-  },
+	implementation: Clients,
+	options: {
+		default: { retries: 3, timeout: TIMEOUT_MS },
+		status: { memoryCache },
+	},
 }
 
 export default new Service({
-  clients,
-  routes: { searchmindai: method({ POST: searchmindaiMiddleware }) },
+	clients,
+	routes: { searchmindai: method({ POST: searchmindaiMiddleware }) },
 })

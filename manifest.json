@@ -28,12 +28,6 @@
         "host": "dev.api.searchmindai.com",
         "path": "/v2/*"
       }
-    },
-    {
-      "name": "colossus-fire-event"
-    },
-    {
-      "name": "colossus-write-logs"
     }
   ],
   "dependencies": {
