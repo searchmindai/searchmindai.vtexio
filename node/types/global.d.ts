@@ -1,14 +1,14 @@
-import type { ServiceContext } from "@vtex/api";
+import type { ServiceContext } from '@vtex/api'
 
 declare global {
-  type Context = ServiceContext<Clients>;
+  type Context = ServiceContext<Clients>
 
   type SearchRequest = {
-    chatConfigId: number;
-    query: string;
-    limit: number;
-    offset: number;
-    documentType: "product" | string;
-    returnFields?: string[];
-  };
+    chatConfigId: number
+    query: string
+    limit: number
+    offset: number
+    documentType: 'product' | string
+    returnFields?: string[]
+  }
 }
