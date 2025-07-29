@@ -20,7 +20,7 @@ function SearchResult() {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [isFocused, setIsFocused] = useState(false);
 	const containerRef = useRef<HTMLDivElement>(null);
-	const { results, isLoading } = useSearchProducts({ searchTerm, minChars: 3, debounceMs: 2000 });
+	const { results, isLoading } = useSearchProducts({ searchTerm, minChars: 3, debounceMs: 300 });
 
 	useEffect(() => {
 		const handleClickOutside = (event: MouseEvent) => {

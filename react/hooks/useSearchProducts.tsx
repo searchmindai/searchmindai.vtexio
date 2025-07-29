@@ -1,67 +1,49 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
 
-interface Product {
-  nome: string
-  link?: string
-}
+export function useSearchProducts({ searchTerm, minChars = 3, debounceMs = 300 }: UseSearchProductsOptions) {
+	const [results, setResults] = useState<Product[]>([]);
+	const [isLoading, setIsLoading] = useState(false);
 
-interface UseSearchProductsOptions {
-  searchTerm: string
-  minChars?: number
-  debounceMs?: number
-}
+	useEffect(() => {
+		if (searchTerm.length < minChars) {
+			setResults([]);
+			return;
+		}
 
-export function useSearchProducts({
-  searchTerm,
-  minChars = 3,
-  debounceMs = 300,
-}: UseSearchProductsOptions) {
-  const [results, setResults] = useState<Product[]>([])
-  const [isLoading, setIsLoading] = useState(false)
+		const handler = setTimeout(async () => {
+			setIsLoading(true);
+			try {
+				const res = await fetch("/_v/search", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({
+						query: searchTerm,
+						limit: 3,
+						offset: 0,
+						returnFields: ["productName"],
+					}),
+				});
 
-  useEffect(() => {
-    if (searchTerm.length < minChars) {
-      setResults([])
-      return
-    }
+				const data = await res.json();
 
-    const handler = setTimeout(async () => {
-      setIsLoading(true)
-      try {
-        const res = await fetch('/_v/search', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            query: searchTerm,
-            limit: 3,
-            offset: 0,
-            returnFields: ['productName'],
-          }),
-        })
+				const produtos = data.results.map((item: any) => ({
+					nome: item.data.productName,
+					link: item.data._vtex_original?.link?.replace(/^https?:\/\/[^/]+/, ""),
+				}));
 
-        const data = await res.json()
+				setResults(produtos || []);
+			} catch (err) {
+				console.error("Search error:", err);
+				setResults([]);
+			} finally {
+				setIsLoading(false);
+			}
+		}, debounceMs);
 
-        const produtos = data.results.map((item: any) => ({
-          nome: item.data.productName,
-          link: item.data._vtex_original?.link?.replace(
-            /^https?:\/\/[^/]+/,
-            ''
-          ),
-        }))
+		return () => clearTimeout(handler);
+	}, [searchTerm, minChars, debounceMs]);
 
-        setResults(produtos || [])
-      } catch (err) {
-        console.error('Search error:', err)
-        setResults([])
-      } finally {
-        setIsLoading(false)
-      }
-    }, debounceMs)
-
-    return () => clearTimeout(handler)
-  }, [searchTerm, minChars, debounceMs])
-
-  return { results, isLoading }
+	return { results, isLoading };
 }
