@@ -33,7 +33,8 @@
   "dependencies": {
     "vtex.css-handles": "1.x",
     "vtex.styleguide": "9.x",
-    "vtex.store-icons": "0.x"
+    "vtex.store-icons": "0.x",
+    "vtex.search-page-context": "0.x"
   },
   "peerDependencies": {},
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"

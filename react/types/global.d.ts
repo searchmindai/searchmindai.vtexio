@@ -9,12 +9,15 @@ declare global {
 	interface Product {
 		nome: string
 		link?: string
+		image?: string
 	}
 
 	interface UseSearchProductsOptions {
 		searchTerm: string
-		minChars?: number
 		debounceMs?: number
+		limit?: number
+		offset?: number
+		isFacets?: boolean
 	}
 
 }

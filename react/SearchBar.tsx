@@ -20,7 +20,7 @@ function SearchResult() {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [isFocused, setIsFocused] = useState(false);
 	const containerRef = useRef<HTMLDivElement>(null);
-	const { results, isLoading } = useSearchProducts({ searchTerm, minChars: 3, debounceMs: 300 });
+	const { results, isLoading, total } = useSearchProducts({ searchTerm, debounceMs: 300 });
 
 	useEffect(() => {
 		const handleClickOutside = (event: MouseEvent) => {
@@ -47,6 +47,11 @@ function SearchResult() {
 					value={searchTerm}
 					onFocus={() => setIsFocused(true)}
 					onChange={(e) => setSearchTerm(e.target.value)}
+					onKeyDown={(e) => {
+						if (e.key === "Enter" && searchTerm.length >= 3) {
+							window.location.href = `/${encodeURIComponent(searchTerm)}`;
+						}
+					}}
 				/>
 				<button
 					className={classNames(handles.searchBarButton, "bg-transparent bn flex items-center justify-center pa0")}
@@ -55,7 +60,9 @@ function SearchResult() {
 				</button>
 			</div>
 			{searchTerm.length >= 3 && isFocused && (
-				<div className={classNames(handles.searchBarResultContainer, "absolute z-1 bg-white w-100 br2 ba b--muted-4")}>
+				<div
+					className={classNames(handles.searchBarResultContainer, "absolute z-999 bg-white w-100 br2 ba b--muted-4")}
+				>
 					<ul className={classNames(handles.searchBarResultList, "list pl0 mt0")}>
 						{isLoading &&
 							Array.from({ length: 3 }).map((_, idx) => (
@@ -68,14 +75,15 @@ function SearchResult() {
 							))}
 						{results.map((item, idx) => (
 							<li key={idx} className={classNames(handles.searchBarResultListItems, "t-small pa4 hover-bg-muted-5")}>
-								<a href={item.link} className="link no-underline c-muted-2">
-									{item.nome}
+								<a href={item.link} className="link no-underline c-muted-2 flex items-center">
+									<img src={item.image} alt="" width={40} height={40} className="mr3" />
+									<span>{item.nome}</span>
 								</a>
 							</li>
 						))}
 						<li className={classNames(handles.searchBarResultListItems, "t-small pa4 hover-bg-muted-5")}>
 							<a href={`/${encodeURIComponent(searchTerm)}`} className="link no-underline c-muted-2">
-								Ver todos os resultados
+								{total > 0 ? `Ver todos los ${total} resultados para "${searchTerm}"` : "No se encontraron resultados"}
 							</a>
 						</li>
 					</ul>
