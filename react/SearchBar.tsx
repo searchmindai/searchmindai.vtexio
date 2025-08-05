@@ -44,6 +44,7 @@ function SearchResult() {
 					className={classNames(handles.searchBarInput, "input-reset bn pa2 db w-100 t-small")}
 					id="sm-search-bar"
 					name="sm-search-bar"
+					placeholder="Buscar productos..."
 					value={searchTerm}
 					onFocus={() => setIsFocused(true)}
 					onChange={(e) => setSearchTerm(e.target.value)}

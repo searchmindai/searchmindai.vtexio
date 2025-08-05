@@ -4,7 +4,13 @@ import { useSearchPage } from "vtex.search-page-context/SearchPageContext";
 import { useSearchProducts } from "./hooks/useSearchProducts";
 import "./styles/styles.css";
 
-const CSS_HANDLES = ["searchResultContainer"] as const;
+const CSS_HANDLES = [
+	"searchResultContainer",
+	"searchResultListGrid",
+	"searchResultListItem",
+	"searchResultImg",
+	"searchResultTitle",
+] as const;
 
 function SearchResult() {
 	const { handles } = useCssHandles(CSS_HANDLES);
@@ -18,8 +24,6 @@ function SearchResult() {
 		offset,
 		isFacets: true,
 	});
-
-	console.log("Search facets:", facets);
 
 	return (
 		<section className={classNames(handles.searchResultContainer, "relative w-100")}>
@@ -64,45 +68,20 @@ function SearchResult() {
 					{results.length === 0 && isLoading && <div className="loading-indicator">Loading...</div>}
 					{results.length > 0 && (
 						<>
-							<ul
-								className={classNames("pa0 ma0 bg-white")}
-								style={{
-									display: "grid",
-									gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-									gap: "1rem",
-									listStyle: "none",
-								}}
-							>
+							<ul className={classNames("pa0 ma0 bg-white", handles.searchResultListGrid)}>
 								{results.map((product, index) => (
-									<li key={index} className={classNames("flex list")}>
+									<li key={index} className={classNames("flex list", handles.searchResultListItem)}>
 										<a href={product.link} className="flex flex-column items-center justify-center no-underline">
 											{product.image && (
 												<img
 													src={product.image}
 													alt={product.nome}
-													className="mb5"
+													className={classNames("mb5", handles.searchResultImg)}
 													width={100}
 													height={100}
-													style={{
-														width: "100%",
-														height: "auto",
-														aspectRatio: "1 / 1",
-													}}
 												/>
 											)}
-											<span
-												className="c-muted-2 t-base mb5"
-												style={{
-													WebkitLineClamp: 2,
-													lineClamp: 2,
-													display: "-webkit-box",
-													WebkitBoxOrient: "vertical",
-													overflow: "hidden",
-													textOverflow: "ellipsis",
-													fontWeight: "bold",
-													flex: "1",
-												}}
-											>
+											<span className={classNames("c-muted-2 t-base mb5", handles.searchResultTitle)}>
 												{product.nome}
 											</span>
 											<a href={product.link} className="link white bg-action-primary br2 pa3 w-100 tc no-underline">

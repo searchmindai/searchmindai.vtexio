@@ -26,3 +26,27 @@
 	overflow-y: auto;
 	margin-bottom: 0;
 }
+
+.searchResultListGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 1rem;
+	list-style: none;
+}
+
+.searchResultImg {
+	width: 100%;
+	height: auto;
+	aspect-ratio: 1 / 1;
+}
+
+.searchResultTitle {
+	-webkit-line-clamp: 2;
+	line-clamp: 2;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-weight: bold;
+	flex: 1;
+}
