@@ -1,0 +1,52 @@
+.searchBarInput {
+	height: 2.5rem;
+	padding: 0.5rem;
+	outline: none;
+}
+
+.searchBarButton {
+	width: 2.5rem;
+	height: 2.5rem;
+}
+
+.searchBarResultContainer {
+	top: 3rem;
+	display: flex;
+	flex-direction: column;
+	max-height: 320px;
+}
+
+.searchBarResultListItems {
+	cursor: pointer;
+	flex-shrink: 0;
+}
+
+.searchBarResultList {
+	max-height: 240px;
+	overflow-y: auto;
+	margin-bottom: 0;
+}
+
+.searchResultListGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 1rem;
+	list-style: none;
+}
+
+.searchResultImg {
+	width: 100%;
+	height: auto;
+	aspect-ratio: 1 / 1;
+}
+
+.searchResultTitle {
+	-webkit-line-clamp: 2;
+	line-clamp: 2;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-weight: bold;
+	flex: 1;
+}

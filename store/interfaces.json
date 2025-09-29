@@ -1,0 +1,8 @@
+{
+  "sm-search-bar": {
+    "component": "SearchBar"
+  },
+  "sm-search-result": {
+    "component": "SearchResult"
+  }
+}

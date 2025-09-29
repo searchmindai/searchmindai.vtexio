@@ -1,12 +1,13 @@
 {
   "vendor": "tramontinacl",
   "name": "searchmindai",
-  "description": "SearchMind AI",
-  "mustUpdateAt": "2024-01-01T00:00:00Z",
-  "categories": ["search", "ai"],
   "version": "0.0.1",
   "builders": {
-    "node": "6.x"
+    "docs": "0.x",
+    "node": "6.x",
+    "react": "3.x",
+    "store": "0.x",
+    "styles": "2.x"
   },
   "settingsSchema": {
     "title": "SearchMind AI Settings",
@@ -25,18 +26,16 @@
       "name": "outbound-access",
       "attrs": {
         "host": "dev.api.searchmindai.com",
-        "path": "/v2/search"
+        "path": "/v2/*"
       }
-    },
-    {
-      "name": "colossus-fire-event"
-    },
-    {
-      "name": "colossus-write-logs"
     }
   ],
-  "dependencies": {},
+  "dependencies": {
+    "vtex.css-handles": "1.x",
+    "vtex.styleguide": "9.x",
+    "vtex.store-icons": "0.x",
+    "vtex.search-page-context": "0.x"
+  },
   "peerDependencies": {},
-  "title": "SearchMind AI",
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }
